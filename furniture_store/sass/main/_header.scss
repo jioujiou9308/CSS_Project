@@ -1,0 +1,57 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    background-color: white;
+    border-bottom: 1px solid rgba(216, 163, 163, 0.179);
+    // let dropdown 運作正常
+    z-index: 1;
+    img{
+        position: absolute;
+        max-width: 100%;
+        left: 10px;
+        height: 100%;
+    }
+    .nav-bar{
+        margin-right: 10%;
+        // 產品目錄 dropdown的hover
+        .nosee{
+            position: relative;
+            &:hover  ul {
+                z-index:-1;
+                display: block;
+            }
+        }
+        li{
+            &:hover{
+                background-color: red;
+            }
+            a{
+                font-size: 20px;
+            }
+            display: inline-block;
+            padding: 10px 15px;
+            ul{
+                background-color: white;
+                position: absolute;
+                display: none;
+                top: 40px;
+                left: 0px;
+               
+                li{
+                    width: 100%;
+                    &:hover{
+                        background: lightblue;
+                    }
+                    a{
+                        text-align: center;
+                        padding-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+        
+    
+}
+

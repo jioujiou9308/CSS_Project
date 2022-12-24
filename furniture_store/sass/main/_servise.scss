@@ -1,0 +1,110 @@
+// 輪播圖視窗大小
+$carousel-width:60vw;
+
+  .center {
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+    background-color: #2A435B;
+    .title{
+        // width: 100%;
+        font-size:50px;
+        color: white;
+        padding-top: 50px;
+        padding-bottom: 20px;
+
+    }
+    .carousel {
+        // 已經設定好了寬度
+        width:$carousel-width;
+        
+        // 視窗縮小的時候不會在下方產生滾動卷軸
+        .scroll::-webkit-scrollbar {
+            display: none;
+          }
+        .scroll {
+            display: flex;
+            align-items: center;
+            overflow-y: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            // 滑動的方式前進
+            scroll-behavior: smooth;
+            // 當有滾輪可以移動時，他不會停在中間，會直接滑到一個葉面
+            scroll-snap-type: x mandatory;
+            // :first-of-type 底下每一種元素的第一個
+            .scroll-item-outer:first-of-type {
+                margin: 0;
+              }
+            .scroll-item-outer {
+                margin: 1vw;
+                scroll-snap-align: center;
+                width: $carousel-width;
+                .scroll-item {
+                    // 已經設定好的寬度
+                    width: $carousel-width;
+                    img{
+                        width: 100%;
+                    }
+                  }
+              }
+          }
+      }
+      #navigate {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1vw 0;
+        a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.2rem;
+            background: #ddd;
+            z-index: 1;
+            border-radius: 50%;
+            padding: 0.8rem;
+            transform: translateY(-30px);
+            &:hover{
+                background: #aaa;
+            }
+          }
+      }
+  }
+  
+  
+ 
+
+  @media only screen and(max-width:768px) {
+   .center{
+        .title{
+        font-size: 30px;
+        }
+        .carousel{
+        width: 90vw;
+        .scroll{
+            .scroll-item-outer{
+                width: 90vw;
+                .scroll-item{
+                    width: 90vw;
+
+                }
+            }
+        }
+        }
+        #navigate {
+            a{
+                // font-size: 0.5rem;
+                padding: 0.5rem;
+            }
+        }
+   }
+}
+ 
+  
+  
+  
+  
+  
+  
