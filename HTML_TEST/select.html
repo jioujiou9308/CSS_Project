@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Radio Button with Images</title>
+    <style>
+      .radio-group {
+        display: flex;
+        gap: 20px;
+      }
+
+      .radio-option {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        width: 150px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .radio-option img {
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .radio-option input[type="radio"] {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        transform: scale(1.5);
+      }
+      .test {
+        border: 1px solid red;
+        border-radius: 8px;
+      }
+
+      .radio-option.selected {
+        border-color: #007bff;
+        background-color: #f0f8ff;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>Choose a Fruit:</h2>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="fruit" value="apple" />
+          <img src="https://via.placeholder.com/100x100?text=Apple" alt="Apple" />
+          <div>Apple</div>
+          <div>$2.00 each</div>
+        </label>
+
+        <label class="radio-option">
+          <input type="radio" name="fruit" value="banana" />
+          <img src="https://via.placeholder.com/100x100?text=Banana" alt="Banana" class="test" />
+          <div>Banana</div>
+          <div>$1.50 each</div>
+        </label>
+
+        <label class="radio-option">
+          <input type="radio" name="fruit" value="orange" />
+          <img src="https://via.placeholder.com/100x100?text=Orange" alt="Orange" />
+          <div>Orange</div>
+          <div>$3.00 each</div>
+        </label>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      // JavaScript to add selected class
+      const options = document.querySelectorAll(".radio-option");
+
+      options.forEach((option) => {
+        option.addEventListener("click", () => {
+          options.forEach((opt) => opt.classList.remove("selected"));
+          option.classList.add("selected");
+        });
+      });
+    </script>
+  </body>
+</html>
